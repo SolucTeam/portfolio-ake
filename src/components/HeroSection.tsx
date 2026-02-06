@@ -92,15 +92,15 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-muted-foreground"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-1.5 text-muted-foreground"
           >
-            <span className="text-xs font-mono">scroll</span>
-            <ChevronDown className="w-5 h-5" />
+            <span className="text-[10px] font-mono uppercase tracking-widest">scroll</span>
+            <ChevronDown className="w-4 h-4" />
           </motion.div>
         </motion.div>
       </div>

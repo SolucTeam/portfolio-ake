@@ -125,20 +125,20 @@ const EducationSection = ({ language }: EducationSectionProps) => {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="glass-card p-6 rounded-xl hover-lift group"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <GraduationCap className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors shrink-0">
+                    <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-start justify-between gap-4 mb-2">
-                      <h3 className="font-bold text-foreground">{edu.degree}</h3>
-                      <span className="font-mono text-primary text-sm shrink-0">{edu.year}</span>
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4 mb-2">
+                      <h3 className="font-bold text-foreground text-sm sm:text-base">{edu.degree}</h3>
+                      <span className="font-mono text-primary text-xs sm:text-sm shrink-0">{edu.year}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground mb-1">
-                      <Building className="w-4 h-4" />
-                      <span>{edu.school}</span>
+                      <Building className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                      <span className="text-xs sm:text-sm">{edu.school}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{edu.location}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{edu.location}</p>
                     {edu.partnership && (
                       <p className="text-xs text-accent mt-2 font-mono">{edu.partnership}</p>
                     )}

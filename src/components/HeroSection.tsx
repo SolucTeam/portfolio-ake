@@ -43,10 +43,10 @@ const HeroSection = ({ language, onLanguageChange }: HeroSectionProps) => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
         onClick={() => onLanguageChange(language === "fr" ? "en" : "fr")}
-        className="fixed top-20 right-4 md:top-6 md:right-6 z-50 glass-card px-3 py-2 rounded-full flex items-center gap-2 hover:scale-105 transition-transform"
+        className="fixed top-20 right-4 md:top-6 md:right-6 z-50 glass-card px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full flex items-center gap-1.5 sm:gap-2 hover:scale-105 transition-transform"
       >
-        <Globe className="w-4 h-4 text-primary" />
-        <span className="font-mono text-sm font-semibold">
+        <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+        <span className="font-mono text-xs sm:text-sm font-semibold">
           {language === "fr" ? "EN" : "FR"}
         </span>
       </motion.button>
@@ -76,7 +76,7 @@ const HeroSection = ({ language, onLanguageChange }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6"
           >
             <span className="text-foreground">Aziz </span>
             <span className="text-gradient glow-text">Kone</span>
@@ -87,9 +87,9 @@ const HeroSection = ({ language, onLanguageChange }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-mono font-medium text-muted-foreground">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-mono font-medium text-muted-foreground">
               <span className="text-primary">&lt;</span>
               {t.role}
               <span className="text-primary"> /&gt;</span>
@@ -101,7 +101,7 @@ const HeroSection = ({ language, onLanguageChange }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
           >
             {t.description}
           </motion.p>
@@ -111,18 +111,18 @@ const HeroSection = ({ language, onLanguageChange }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4"
           >
             <a
               href="#experience"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg glow-box hover:scale-105 transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-semibold rounded-lg glow-box hover:scale-105 transition-all duration-300 text-sm sm:text-base"
             >
               {t.cta1}
               <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 glass-card font-semibold rounded-lg hover-lift border border-primary/30 hover:border-primary/60"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 glass-card font-semibold rounded-lg hover-lift border border-primary/30 hover:border-primary/60 text-sm sm:text-base"
             >
               {t.cta2}
             </a>

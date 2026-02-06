@@ -142,38 +142,40 @@ const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-box" />
                 
-                <div className="glass-card p-6 md:p-8 rounded-xl hover-lift">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
-                      <p className="text-primary font-semibold text-lg">{exp.company}</p>
-                    </div>
-                    <div className="flex flex-col gap-1 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-2 font-mono">
-                        <Calendar className="w-4 h-4" />
-                        {exp.period}
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
-                      </span>
+                <div className="glass-card p-4 sm:p-6 md:p-8 rounded-xl hover-lift">
+                  <div className="flex flex-col gap-3 sm:gap-4 mb-4">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 md:gap-4">
+                      <div>
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-1">{exp.title}</h3>
+                        <p className="text-primary font-semibold text-sm sm:text-base md:text-lg">{exp.company}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-2 md:gap-1 md:flex-col text-xs sm:text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1.5 sm:gap-2 font-mono">
+                          <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          {exp.period}
+                        </span>
+                        <span className="flex items-center gap-1.5 sm:gap-2">
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          {exp.location}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                     {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                        <span className="text-primary mt-1.5">▹</span>
+                      <li key={i} className="flex items-start gap-2 sm:gap-3 text-muted-foreground text-xs sm:text-sm md:text-base">
+                        <span className="text-primary mt-0.5 sm:mt-1">▹</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-mono bg-secondary text-primary rounded-full border border-primary/20"
+                        className="px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono bg-secondary text-primary rounded-full border border-primary/20"
                       >
                         {tech}
                       </span>

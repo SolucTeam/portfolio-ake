@@ -107,17 +107,17 @@ const AboutSection = ({ language }: AboutSectionProps) => {
             <h3 className="font-mono text-sm text-muted-foreground mb-6 flex items-center gap-2">
               <span className="text-primary">$</span> {t.skillsCmd}
             </h3>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
-                  className="glass-card p-4 rounded-lg hover-lift group cursor-default"
+                  className="glass-card p-3 sm:p-4 rounded-lg hover-lift group cursor-default"
                 >
-                  <skill.icon className="w-6 h-6 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <p className="font-medium text-sm text-foreground">{skill.name}</p>
+                  <skill.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mb-1.5 sm:mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="font-medium text-xs sm:text-sm text-foreground">{skill.name}</p>
                   <p className="text-xs text-muted-foreground font-mono">{skill.category}</p>
                 </motion.div>
               ))}

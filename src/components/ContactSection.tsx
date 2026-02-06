@@ -69,37 +69,37 @@ const ContactSection = ({ language }: ContactSectionProps) => {
             >
               <a
                 href="mailto:k.aziz.k@live.fr"
-                className="glass-card p-5 rounded-xl flex items-center gap-4 hover-lift group"
+                className="glass-card p-4 sm:p-5 rounded-xl flex items-center gap-3 sm:gap-4 hover-lift group"
               >
-                <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="p-2.5 sm:p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground font-mono">{t.email}</p>
-                  <p className="text-foreground font-medium">k.aziz.k@live.fr</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-muted-foreground font-mono">{t.email}</p>
+                  <p className="text-foreground font-medium text-sm sm:text-base truncate">k.aziz.k@live.fr</p>
                 </div>
               </a>
 
               <a
                 href="tel:+33752416491"
-                className="glass-card p-5 rounded-xl flex items-center gap-4 hover-lift group"
+                className="glass-card p-4 sm:p-5 rounded-xl flex items-center gap-3 sm:gap-4 hover-lift group"
               >
-                <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="p-2.5 sm:p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground font-mono">{t.phone}</p>
-                  <p className="text-foreground font-medium">+33 7 52 41 64 91</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-muted-foreground font-mono">{t.phone}</p>
+                  <p className="text-foreground font-medium text-sm sm:text-base">+33 7 52 41 64 91</p>
                 </div>
               </a>
 
-              <div className="glass-card p-5 rounded-xl flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <MapPin className="w-5 h-5 text-primary" />
+              <div className="glass-card p-4 sm:p-5 rounded-xl flex items-center gap-3 sm:gap-4">
+                <div className="p-2.5 sm:p-3 bg-primary/10 rounded-lg shrink-0">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground font-mono">{t.location}</p>
-                  <p className="text-foreground font-medium">Noisy-le-Grand, France</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-muted-foreground font-mono">{t.location}</p>
+                  <p className="text-foreground font-medium text-sm sm:text-base">Noisy-le-Grand, France</p>
                 </div>
               </div>
             </motion.div>
@@ -109,20 +109,20 @@ const ContactSection = ({ language }: ContactSectionProps) => {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass-card p-8 rounded-xl text-center flex flex-col justify-center"
+              className="glass-card p-6 sm:p-8 rounded-xl text-center flex flex-col justify-center"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center glow-box">
-                <Send className="w-7 h-7 text-primary-foreground" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center glow-box">
+                <Send className="w-5 h-5 sm:w-7 sm:h-7 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
                 {t.ctaTitle}
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base">
                 {t.ctaText}
               </p>
               <a
                 href="mailto:k.aziz.k@live.fr?subject=Opportunité%20de%20collaboration"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg glow-box hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 bg-primary text-primary-foreground font-semibold rounded-lg glow-box hover:scale-105 transition-all duration-300 text-sm sm:text-base"
               >
                 <Mail className="w-4 h-4" />
                 {t.ctaButton}

@@ -138,7 +138,7 @@ const ContactSection = ({ language }: ContactSectionProps) => {
             className="flex justify-center gap-4 mt-12"
           >
             <a
-              href="https://github.com/"
+              href="https://github.com/crabearaignee"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 glass-card rounded-full hover-lift group"
@@ -146,7 +146,7 @@ const ContactSection = ({ language }: ContactSectionProps) => {
               <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/aziz-karamoko-kone/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 glass-card rounded-full hover-lift group"

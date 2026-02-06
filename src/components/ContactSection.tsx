@@ -3,9 +3,39 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 
-const ContactSection = () => {
+type Language = "fr" | "en";
+
+const content = {
+  fr: {
+    title: "Contact",
+    subtitle: "Intéressé par une collaboration ou une opportunité ? N'hésitez pas à me contacter.",
+    email: "Email",
+    phone: "Téléphone",
+    location: "Localisation",
+    ctaTitle: "Parlons de votre projet",
+    ctaText: "Je suis ouvert aux opportunités de collaboration et aux projets innovants.",
+    ctaButton: "Envoyer un message",
+  },
+  en: {
+    title: "Contact",
+    subtitle: "Interested in a collaboration or an opportunity? Feel free to reach out.",
+    email: "Email",
+    phone: "Phone",
+    location: "Location",
+    ctaTitle: "Let's talk about your project",
+    ctaText: "I'm open to collaboration opportunities and innovative projects.",
+    ctaButton: "Send a message",
+  },
+};
+
+interface ContactSectionProps {
+  language: Language;
+}
+
+const ContactSection = ({ language }: ContactSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const t = content[language];
 
   return (
     <section id="contact" className="section-padding relative">
@@ -20,11 +50,11 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="font-mono text-primary">04.</span> Contact
+            <span className="font-mono text-primary">04.</span> {t.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6" />
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Intéressé par une collaboration ou une opportunité ? N'hésitez pas à me contacter.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -45,7 +75,7 @@ const ContactSection = () => {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-mono">Email</p>
+                  <p className="text-sm text-muted-foreground font-mono">{t.email}</p>
                   <p className="text-foreground font-medium">k.aziz.k@live.fr</p>
                 </div>
               </a>
@@ -58,7 +88,7 @@ const ContactSection = () => {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-mono">Téléphone</p>
+                  <p className="text-sm text-muted-foreground font-mono">{t.phone}</p>
                   <p className="text-foreground font-medium">+33 7 52 41 64 91</p>
                 </div>
               </a>
@@ -68,7 +98,7 @@ const ContactSection = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-mono">Localisation</p>
+                  <p className="text-sm text-muted-foreground font-mono">{t.location}</p>
                   <p className="text-foreground font-medium">Noisy-le-Grand, France</p>
                 </div>
               </div>
@@ -85,17 +115,17 @@ const ContactSection = () => {
                 <Send className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">
-                Parlons de votre projet
+                {t.ctaTitle}
               </h3>
               <p className="text-muted-foreground mb-6">
-                Je suis ouvert aux opportunités de collaboration et aux projets innovants.
+                {t.ctaText}
               </p>
               <a
                 href="mailto:k.aziz.k@live.fr?subject=Opportunité%20de%20collaboration"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg glow-box hover:scale-105 transition-all duration-300"
               >
                 <Mail className="w-4 h-4" />
-                Envoyer un message
+                {t.ctaButton}
               </a>
             </motion.div>
           </div>

@@ -3,7 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Award, Building } from "lucide-react";
 
-const education = [
+type Language = "fr" | "en";
+
+const educationFr = [
   {
     degree: "Master II – Ingénierie Réseaux et Systèmes",
     school: "Université Paris Saclay",
@@ -31,15 +33,71 @@ const education = [
   },
 ];
 
+const educationEn = [
+  {
+    degree: "Master II – Network and Systems Engineering",
+    school: "Paris Saclay University",
+    location: "Sceaux 92",
+    year: "2022",
+    partnership: "In partnership with AFTI-Numérique School",
+  },
+  {
+    degree: "Master I – Systems, Networks and Security Administrator",
+    school: "AFTI-Numérique (AFORP Group)",
+    location: "Issy-les-Moulineaux 92",
+    year: "2021",
+  },
+  {
+    degree: "Bachelor II – Systems, Networks and Security Integrator Designer",
+    school: "AFTI-Numérique (AFORP Group)",
+    location: "Issy-les-Moulineaux 92",
+    year: "2020",
+  },
+  {
+    degree: "Bachelor I – Computer Science",
+    school: "YNOV-CAMPUS Paris",
+    location: "Nanterre 92",
+    year: "2019",
+  },
+];
+
 const certifications = [
   { name: "Azure Administrator", icon: "☁️" },
   { name: "VMware", icon: "🖥️" },
   { name: "HAProxy", icon: "⚖️" },
 ];
 
-const EducationSection = () => {
+const content = {
+  fr: {
+    title: "Formation",
+    education: educationFr,
+    certifications: "Certifications",
+    languages: "Langues",
+    french: "Français",
+    english: "Anglais",
+    native: "Natif",
+    professional: "Professionnel",
+  },
+  en: {
+    title: "Education",
+    education: educationEn,
+    certifications: "Certifications",
+    languages: "Languages",
+    french: "French",
+    english: "English",
+    native: "Native",
+    professional: "Professional",
+  },
+};
+
+interface EducationSectionProps {
+  language: Language;
+}
+
+const EducationSection = ({ language }: EducationSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const t = content[language];
 
   return (
     <section id="education" className="section-padding relative overflow-hidden">
@@ -51,7 +109,7 @@ const EducationSection = () => {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="font-mono text-primary">03.</span> Formation
+            <span className="font-mono text-primary">03.</span> {t.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full" />
         </motion.div>
@@ -59,7 +117,7 @@ const EducationSection = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Education Timeline */}
           <div className="lg:col-span-2 space-y-6">
-            {education.map((edu, index) => (
+            {t.education.map((edu, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -100,7 +158,7 @@ const EducationSection = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <Award className="w-5 h-5 text-primary" />
-                <h3 className="font-bold text-foreground">Certifications</h3>
+                <h3 className="font-bold text-foreground">{t.certifications}</h3>
               </div>
               <div className="space-y-3">
                 {certifications.map((cert, index) => (
@@ -121,12 +179,12 @@ const EducationSection = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="glass-card p-6 rounded-xl"
             >
-              <h3 className="font-bold text-foreground mb-6">Langues</h3>
+              <h3 className="font-bold text-foreground mb-6">{t.languages}</h3>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-muted-foreground">Français</span>
-                    <span className="font-mono text-xs text-primary">Natif</span>
+                    <span className="text-muted-foreground">{t.french}</span>
+                    <span className="font-mono text-xs text-primary">{t.native}</span>
                   </div>
                   <div className="h-2 bg-secondary rounded-full overflow-hidden">
                     <div className="h-full w-full bg-gradient-to-r from-primary to-accent rounded-full" />
@@ -134,8 +192,8 @@ const EducationSection = () => {
                 </div>
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-muted-foreground">Anglais</span>
-                    <span className="font-mono text-xs text-primary">Professionnel</span>
+                    <span className="text-muted-foreground">{t.english}</span>
+                    <span className="font-mono text-xs text-primary">{t.professional}</span>
                   </div>
                   <div className="h-2 bg-secondary rounded-full overflow-hidden">
                     <div className="h-full w-4/5 bg-gradient-to-r from-primary to-accent rounded-full" />

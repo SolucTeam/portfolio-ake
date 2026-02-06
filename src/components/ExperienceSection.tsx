@@ -3,7 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 
-const experiences = [
+type Language = "fr" | "en";
+
+const experiencesFr = [
   {
     title: "Site Reliability Engineer (Platform Engineer)",
     company: "NumSpot",
@@ -15,7 +17,7 @@ const experiences = [
       "Maintien en conditions opérationnelles (MCO/MCS) selon les principes d'immutabilité",
       "Contribution à l'amélioration continue vers un modèle No Ops",
     ],
-    technologies: ["Kubernetes", "Terraform", "GitOps", "Prometheus", "Grafana"],
+    technologies: ["Kubernetes", "Terraform", "GitOps", "Prometheus", "Grafana", "cdk8s", "FluxCD"],
   },
   {
     title: "Ingénieur Système Linux | DevOps (Alternance)",
@@ -44,9 +46,66 @@ const experiences = [
   },
 ];
 
-const ExperienceSection = () => {
+const experiencesEn = [
+  {
+    title: "Site Reliability Engineer (Platform Engineer)",
+    company: "NumSpot",
+    location: "France",
+    period: "Aug 2023 - Present",
+    description: [
+      "Design and deployment of production and non-production platforms",
+      "Implementation of CI/CD infrastructure and observability systems",
+      "Operational maintenance (MCO/MCS) following immutability principles",
+      "Contributing to continuous improvement towards a No Ops model",
+    ],
+    technologies: ["Kubernetes", "Terraform", "GitOps", "Prometheus", "Grafana", "cdk8s", "FluxCD"],
+  },
+  {
+    title: "Linux System Engineer | DevOps (Apprenticeship)",
+    company: "Cloud-Temple",
+    location: "France",
+    period: "Sep 2019 - May 2023",
+    description: [
+      "Supervision and operational maintenance of client IT systems",
+      "Incident and request handling according to defined SLAs",
+      "Technology watch and continuous improvement of information systems",
+      "Automation project management and Kubernetes cluster deployment",
+    ],
+    technologies: ["Terraform", "Ansible", "Docker", "Linux", "VMware"],
+  },
+  {
+    title: "Operations Manager Assistant (Internship)",
+    company: "Cloud-Temple",
+    location: "France",
+    period: "Jul 2019 - Sep 2019",
+    description: [
+      "Supervision and operational maintenance",
+      "Incident handling according to SLAs",
+      "Backup implementation and monitoring",
+    ],
+    technologies: ["Linux", "Monitoring", "Backup Solutions"],
+  },
+];
+
+const content = {
+  fr: {
+    title: "Expériences",
+    experiences: experiencesFr,
+  },
+  en: {
+    title: "Experience",
+    experiences: experiencesEn,
+  },
+};
+
+interface ExperienceSectionProps {
+  language: Language;
+}
+
+const ExperienceSection = ({ language }: ExperienceSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const t = content[language];
 
   return (
     <section id="experience" className="section-padding relative">
@@ -61,7 +120,7 @@ const ExperienceSection = () => {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="font-mono text-primary">02.</span> Expériences
+            <span className="font-mono text-primary">02.</span> {t.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full" />
         </motion.div>
@@ -72,7 +131,7 @@ const ExperienceSection = () => {
           <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-border to-transparent" />
 
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
+            {t.experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -30 }}

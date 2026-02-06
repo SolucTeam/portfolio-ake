@@ -14,7 +14,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar language={language} />
       <main>
         <HeroSection language={language} onLanguageChange={setLanguage} />
         <AboutSection language={language} />
@@ -22,7 +22,7 @@ const Index = () => {
         <EducationSection language={language} />
         <ContactSection language={language} />
       </main>
-      <Footer />
+      <Footer language={language} />
     </div>
   );
 };

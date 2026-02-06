@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
 
-const Footer = () => {
+type Language = "fr" | "en";
+
+const content = {
+  fr: {
+    tagline: "Conçu avec passion",
+    rights: "Tous droits réservés.",
+  },
+  en: {
+    tagline: "Built with passion",
+    rights: "All rights reserved.",
+  },
+};
+
+interface FooterProps {
+  language: Language;
+}
+
+const Footer = ({ language }: FooterProps) => {
+  const t = content[language];
+
   return (
     <footer className="py-8 border-t border-border/50">
       <div className="container-custom">
@@ -12,10 +31,10 @@ const Footer = () => {
         >
           <p className="font-mono">
             <span className="text-primary">&lt;</span>
-            Conçu avec passion
+            {t.tagline}
             <span className="text-primary"> /&gt;</span>
           </p>
-          <p>© {new Date().getFullYear()} Aziz Kone. Tous droits réservés.</p>
+          <p>© {new Date().getFullYear()} Aziz Kone. {t.rights}</p>
         </motion.div>
       </div>
     </footer>

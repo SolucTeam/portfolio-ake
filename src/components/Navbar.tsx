@@ -2,16 +2,30 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
+type Language = "fr" | "en";
+
+const navLinksFr = [
   { href: "#about", label: "À propos" },
   { href: "#experience", label: "Expériences" },
   { href: "#education", label: "Formation" },
   { href: "#contact", label: "Contact" },
 ];
 
-const Navbar = () => {
+const navLinksEn = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
+  { href: "#contact", label: "Contact" },
+];
+
+interface NavbarProps {
+  language: Language;
+}
+
+const Navbar = ({ language }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navLinks = language === "fr" ? navLinksFr : navLinksEn;
 
   useEffect(() => {
     const handleScroll = () => {

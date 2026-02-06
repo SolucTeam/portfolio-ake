@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Configuration pour GitHub Pages
+  // Votre site sera accessible à: https://solucteam.github.io/portfolio-ake/
+  base: '/portfolio-ake/',
+  
   server: {
     host: "::",
     port: 8080,
